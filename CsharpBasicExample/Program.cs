@@ -1,12 +1,26 @@
 ﻿using System;
 
-namespace CsharpBasicExample
+namespace DataTypeExample
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!!!S");
+            #region string
+
+            StringExample1();
+
+            #endregion
         }
+
+        #region string
+
+        public void StringExample1()
+        {
+
+        }
+
+        #endregion
+
     }
 }
