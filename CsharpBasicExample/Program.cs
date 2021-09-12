@@ -6,17 +6,11 @@ namespace DataTypeExample
 {
     class Program
     {
-        /// <summary>
-        /// 문자열(string)
-        /// </summary>
-        /// <param name="args"></param>
-
-
         static void Main(string[] args)
         {
             #region 문자
-            //StringExample1();//String(Immutable Type)
-            //StringExample2();//StringBuilder(Mutable Type)
+            StringExample1();//String(Immutable Type)
+            StringExample2();//StringBuilder(Mutable Type)
             #endregion
 
             #region 정수
