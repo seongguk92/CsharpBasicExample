@@ -7,10 +7,11 @@ namespace DataStructureExample
     {
         static void Main(string[] args)
         {
-            #region Dictionary <key, value>
-            ProcessDictionary();
+            #region Dictionary<key, value>
+            //ProcessDictionary();
             #endregion
             #region List<T>
+            ProcessList();
             #endregion
             #region Queue<T>
             #endregion
@@ -22,6 +23,7 @@ namespace DataStructureExample
             #endregion
         }
 
+        #region Dictionary<key, value>
         public static void ProcessDictionary()
         {
             //Datatable
@@ -65,9 +67,25 @@ namespace DataStructureExample
             {
                 Console.WriteLine($"{ex.Message}");
             }
-            
-
-
         }
+        #endregion
+
+        #region List<T>
+        public static void ProcessList()
+        {
+            List<Action> listWrite = new List<Action>();
+            listWrite.Add(() => { Console.WriteLine("A Process"); });
+            listWrite.Add(() => { Console.WriteLine("B Process"); });
+            listWrite.Add(() => { Console.WriteLine("C Process"); });
+            listWrite.Add(() => { Console.WriteLine("D Process"); });
+            listWrite.Add(() => { Console.WriteLine("E Process"); });
+            listWrite.Add(() => { Console.WriteLine("F Process"); });
+
+            foreach (Action action in listWrite)
+            {
+                action();
+            }
+        }
+        #endregion
     }
 }
