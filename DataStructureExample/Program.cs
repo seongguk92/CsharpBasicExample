@@ -1,5 +1,8 @@
 ﻿ using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DataStructureExample
 {
@@ -10,15 +13,21 @@ namespace DataStructureExample
             #region Dictionary<key, value>
             //ProcessDictionary();
             #endregion
+
             #region List<T>
-            ProcessList();
+            //ProcessList();
             #endregion
+
             #region Queue<T>
+            ProcessQueue();
             #endregion
+
             #region Stack<T>
             #endregion
+
             #region LinkedList<T>
             #endregion
+
             #region SortedList<TKey, TValue>
             #endregion
         }
@@ -85,6 +94,40 @@ namespace DataStructureExample
             {
                 action();
             }
+        }
+        #endregion
+
+        #region Queue<T>
+        public static void ProcessQueue()
+        {
+            //FIFO 
+            ConcurrentQueue<int> queue = new ConcurrentQueue<int>();
+            //queue.Enqueue();// 집어넣는것
+            //queue.Dequeue();// 빼내는것
+
+            Task tEnq = Task.Factory.StartNew(() =>
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    queue.Enqueue(i);
+                    Thread.Sleep(1000);
+                }
+            });
+
+            Task tDnq = Task.Factory.StartNew(() =>
+            {
+                int n = 0;
+                int result = 0;
+                while(n < 100)
+                {
+                    if(queue.TryDequeue(out result))
+                    {
+                        Console.WriteLine($"{result}");
+                    }
+                }
+            });
+
+            Task.WaitAll(tEnq, tDnq);
         }
         #endregion
     }
