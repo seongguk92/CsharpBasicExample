@@ -13,7 +13,7 @@ Velog url : https://velog.io/@seongguk/C-%EA%B8%B0%EB%B3%B8-%EB%AC%B8%EB%B2%95
 
 
 ## 😁 DataType
-### String
+### `String`
 - 프로그램에서 가장 많이 쓰이는 데이터 타입
 - Immutable Type
 > Immutable Type -> 값이 설정되면 다시 변경할 수 없는 타입
