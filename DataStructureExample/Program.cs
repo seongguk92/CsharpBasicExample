@@ -19,10 +19,11 @@ namespace DataStructureExample
             #endregion
 
             #region Queue<T>
-            ProcessQueue();
+            //ProcessQueue();
             #endregion
 
             #region Stack<T>
+            ProcessStack(); 
             #endregion
 
             #region LinkedList<T>
@@ -128,6 +129,40 @@ namespace DataStructureExample
             });
 
             Task.WaitAll(tEnq, tDnq);
+        }
+        #endregion
+
+        #region Stack<T>
+        public static void ProcessStack()
+        {
+            ConcurrentStack<int> stack = new ConcurrentStack<int>();
+
+            Task tPush = Task.Factory.StartNew(() =>
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    stack.Push(i);
+                    Thread.Sleep(100);
+                }
+            });
+
+            Task tPop = Task.Factory.StartNew(() =>
+            {
+                int n = 0;
+                int result = 0;
+
+                while (n < 100)
+                {
+                    if(stack.TryPop(out result))
+                    {
+                        Console.WriteLine($"{result}");
+                        n++;
+                    }
+                    Thread.Sleep(150);
+                }
+            });
+
+            Task.WaitAll(tPush, tPop);
         }
         #endregion
     }
