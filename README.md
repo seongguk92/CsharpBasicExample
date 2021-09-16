@@ -26,10 +26,10 @@ public static void StringExample1()
 }
 ~~~
 
-### StringBuilder
+### `StringBuilder`
 - 문자열 갱신이 많은 경우 사용.
-- Mutable Type
-> Mutable Type -> 값을 계속 변경할 수 있는 타입
+- `Mutable Type`
+> `Mutable Type` -> 값을 계속 변경할 수 있는 타입
 ~~~cs
 public static void StringExample2()
 {
@@ -46,7 +46,7 @@ public static void StringExample2()
 }
 ~~~
 
-### int
+### `int`
 - 가장 많이 사용하는 정수형 범위
 (–2,147,483,648 ~ 2,147,483,647)
 - 부호 있는 32비트 정수
@@ -66,10 +66,10 @@ public static void IntExample1()
     }
 }
 ~~~
-### double vs float vs decimal
-- 부동소수점인 **float, double**은 덧셈시 근사치값을 나타내여 정확하지 않음.
-- **decimal**은 금융 거래와 같이 유효 숫자가 필요한 민감한 정보를 기록하는데 권장.
-> 1. decimal 단점은 완전 느리다.
+### `double` vs `float` vs `decimal`
+- 부동소수점인 **`float`, `double`**은 덧셈시 근사치값을 나타내여 정확하지 않음.
+- **`decimal`**은 금융 거래와 같이 유효 숫자가 필요한 민감한 정보를 기록하는데 권장.
+> 1. `decimal` 단점은 완전 느리다.
 >2. float, double은 데이터 크기 및 사용법 그리고 소수점 최대 자리가 다르다.
 
 ~~~cs
